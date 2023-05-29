@@ -1,4 +1,4 @@
-package org.example.home1.task1;
+package org.example.home1.task1.data;
 
 public class Owner {
 

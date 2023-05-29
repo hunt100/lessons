@@ -1,5 +1,8 @@
 package org.example.home1.task1;
 
+import org.example.home1.task1.data.Cat;
+import org.example.home1.task1.data.Owner;
+
 public class FirstMain {
 
     public static void main(String[] args) {
@@ -9,4 +12,5 @@ public class FirstMain {
         cat.setOwner(new Owner("Human"));
         cat.greet();
     }
+
 }
