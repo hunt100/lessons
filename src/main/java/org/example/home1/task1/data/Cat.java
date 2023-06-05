@@ -1,10 +1,17 @@
 package org.example.home1.task1.data;
 
-public class Cat extends Animal {
+public class Cat extends Animal implements Comparable<Cat> {
 
     private String breed;
 
     private Owner owner;
+
+    public Cat() {
+    }
+
+    public Cat(String name, int age) {
+        super(name, age);
+    }
 
     public String getBreed() {
         return breed;
@@ -34,4 +41,10 @@ public class Cat extends Animal {
     public int getOrder() {
         return HIGHEST_PRECEDENCE;
     }
+
+    @Override
+    public int compareTo(Cat o) {
+        return Integer.compare(this.getAge(), o.getAge());
+    }
+
 }
