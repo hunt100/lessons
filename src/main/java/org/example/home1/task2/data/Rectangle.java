@@ -1,6 +1,8 @@
-package org.example.home1.task2;
+package org.example.home1.task2.data;
 
-public class Rectangle {
+import org.example.home1.task2.FigureArea;
+
+public class Rectangle implements FigureArea {
 
     private double width;
     private double height;
@@ -33,12 +35,17 @@ public class Rectangle {
     }
     //endregion
 
-    public double calculateArea() {
-        return width * height;
-    }
-
     public double calculatePerimeter() {
         return 2 * (width + height);
     }
 
+    @Override
+    public double getArea() {
+        return width * height;
+    }
+
+    @Override
+    public int getEdges() {
+        return 4;
+    }
 }
