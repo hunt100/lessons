@@ -1,4 +1,4 @@
-package org.example.home5;
+package org.example.home5.task2;
 
 import org.example.home5.task2.structural.ApplicationContext;
 import org.example.home5.task2.structural.ApplicationStarter;
