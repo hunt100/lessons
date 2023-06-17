@@ -21,4 +21,9 @@ public enum FormType {
     public static FormType getSuccessForm(FormType formType) {
         return values()[formType.ordinal() + 1];
     }
+
+    public static boolean containsFormType(FormType formType) {
+        return INPUT_FORMS.contains(formType);
+    }
+
 }

@@ -1,6 +1,5 @@
 package org.example.home5.task2.view.impl;
 
-import org.example.home5.task2.model.domain.User;
 import org.example.home5.task2.view.UserView;
 import org.example.home5.task2.view.data.enums.FormType;
 import org.example.home5.task2.view.data.pojo.*;
@@ -37,32 +36,6 @@ public class ConsoleUserView implements UserView {
     }
 
     @Override
-    public User getUserFields(FormType type) {
-        var newUser = new User();
-        switch (type) {
-            case USER_REGISTRATION: {
-                System.out.println("\tWrite down user name:");
-                newUser.setName(scanner.nextLine());
-            }
-            case USER_LOGIN, CHANGE_PASSWORD: {
-                System.out.println("\tWrite down user login:");
-                newUser.setLogin(scanner.nextLine());
-
-                System.out.println("\tWrite down user "+ (type.equals(FormType.CHANGE_PASSWORD) ? "new " : "") + "password:");
-                newUser.setPassword(scanner.nextLine());
-                break;
-            }
-            default: throw new UnsupportedOperationException("Not supported operation");
-        }
-        return newUser;
-    }
-
-    @Override
-    public <T> void showResult(T result) {
-        System.out.println(result);
-    }
-
-    @Override
     public int getOperationInput() {
         try {
             int input = Integer.parseInt(scanner.nextLine());
@@ -74,4 +47,10 @@ public class ConsoleUserView implements UserView {
             throw new IllegalArgumentException("Wrong input");
         }
     }
+
+    @Override
+    public ConsoleMessage getForm(FormType formType) {
+        return messagesFactory.get(formType);
+    }
+
 }
