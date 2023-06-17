@@ -9,7 +9,7 @@ import org.example.home5.task2.view.data.enums.FormType;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserHandlerFactory {
+public class UserHandlerFactory implements UserHandlerProvider {
 
     private final Map<FormType, UserOperationHandler> userHandlers;
 

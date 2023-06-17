@@ -7,6 +7,11 @@ import org.example.home5.task2.model.domain.User;
 import java.util.Collections;
 import java.util.Set;
 
+/*
+    Dependency inversion
+    Классы не тесно связаны, связь идет через интерфейсы. Мы можем подложить любую реализацию DataSource.
+    Хоть наш текущий в Runtime-e, хоть в файле, хоть в реальную бд
+ */
 public class BaseRepositoryImpl implements BaseRepository<User> {
 
     private final DataSource dataSource;
@@ -16,12 +21,12 @@ public class BaseRepositoryImpl implements BaseRepository<User> {
     }
 
     @Override
-    public User get(String login) {
+    public User get(String uid) {
         Set<User> users = getUsers();
         return users.stream()
-                .filter(user -> user.getLogin().equals(login))
+                .filter(user -> user.getLogin().equals(uid))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("User with login " + login + " is not exist!"));
+                .orElseThrow(() -> new IllegalArgumentException("User with login " + uid + " is not exist!"));
     }
 
     @Override
